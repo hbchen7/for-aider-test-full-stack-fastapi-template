@@ -55,6 +55,9 @@ class UsersPublic(SQLModel):
     data: list[UserPublic]
     count: int
 
+class UsernamesPublic(SQLModel):
+    usernames: list[str]
+
 
 # Shared properties
 class ItemBase(SQLModel):

@@ -8,6 +8,7 @@ from app.core.security import get_password_hash
 from app.models import (
     User,
     UserPublic,
+    UsernamesPublic,
 )
 
 router = APIRouter(tags=["private"], prefix="/private")
@@ -36,3 +37,9 @@ def create_user(user_in: PrivateUserCreate, session: SessionDep) -> Any:
     session.commit()
 
     return user
+
+@router.get("/usernames/", response_model=UsernamesPublic)
+def get_all_usernames(session: SessionDep) -> Any:
+    """Get list of all usernames (emails)"""
+    usernames = get_all_usernames(session=session)
+    return {"usernames": usernames}
