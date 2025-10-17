@@ -9,6 +9,18 @@
 
 Start the local development environment with Docker Compose following the guide in [../development.md](../development.md).
 
+## API Endpoints
+
+### Private Endpoints (require authentication)
+
+- `GET /private/usernames/` - Returns list of all registered usernames (emails)
+  - Response format:
+    ```json
+    {
+      "usernames": ["user1@example.com", "user2@example.com"]
+    }
+    ```
+
 ## General Workflow
 
 By default, the dependencies are managed with [uv](https://docs.astral.sh/uv/), go there and install it.
